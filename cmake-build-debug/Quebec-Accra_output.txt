@@ -1,7 +1,0 @@
-1. 3H from YQB to YUL 0 stops
-2. AA from YUL to JFK 0 stops
-3. DL from JFK to ACC 0 stops
-Total flights = 3
-Total additional stops = 0
-Total distance: 8991.63km
-Optimality criteria: distance

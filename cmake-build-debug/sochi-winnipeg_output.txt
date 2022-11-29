@@ -1,7 +1,0 @@
-1. SU from AER to IST 0 stops
-2. AC from IST to YYZ 0 stops
-3. AC from YYZ to YWG 0 stops
-Total flights = 3
-Total additional stops = 0
-Total distance: 10659.9km
-Optimality criteria: distance

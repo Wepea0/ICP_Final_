@@ -1,7 +1,0 @@
-1. 7J from AER to DYU 0 stops
-2. SZ from DYU to FRA 0 stops
-3. LH from FRA to ABV 0 stops
-Total flights = 3
-Total additional stops = 0
-Total distance: 11857.2km
-Optimality criteria: distance
