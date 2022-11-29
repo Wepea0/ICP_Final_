@@ -1,6 +1,0 @@
-1. AA from ACC to LHR0 stops
-2. BA from LHR to HND0 stops
-Total flights = 2
-Total additional stops = 0
-Total distance: 14691.6km
-Optimality criteria: distance
