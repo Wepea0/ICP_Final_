@@ -1,191 +1,242 @@
-
-
-#include "Airport.h"
+//
+// Created by Wepea Buntugu on 23/11/2022.
+//
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
+#include "AirportCpp.h"
+
 using namespace std;
 
+class Airport::Airport{
+public:
+    /* Declaration of instance variables */
+    string airportID;
+    string airportName;
+    string airportCity;
+    string country;
+    string IATA;
+    string ICAO;
+    double longitude;
+    double latitude;
+
+    /* Method declarations */
+    string toString();
+    string getAirportID();
+    void setAirportID(string AirportID);
+    void setIATA(string IATA);
+    string getIATA() ;
+    void setICAO(string ICAO);
+    string getICAO() ;
+    string getAirportCity();
+    void setAirportCity(string airportCity);
+    string getAirportName();
+    void setAirportName(string airportName);
+    string getCountry();
+    void setCountry(string country);
+    double getLongitude();
+    void setLongitude(double longitude);
+    double getLatitude();
+    void setLatitude(double latitude);
+
+    void readAirportFile(string airportFile);
+    Airport getObject(string IATA);
+    vector<Airport> getAirport(string source);
+
+
+    /** Constructor method for Airport class
+     *@param: string airportID;
+     *        string airportName;
+     *        string airportCity;
+     *        string country;
+     *        string IATA;
+     *        string ICAO;
+     *        double longitude;
+    *         double latitude;
+    **/
+    Airport(string ID, string name, string city, string country, string IATA, string ICAO, double airlong, double lat) {
+        this->airportID = ID;
+        this -> airportName = name;
+        this -> airportCity = city;
+        this -> country = country;
+        this -> IATA = IATA;
+        this -> ICAO = ICAO;
+        this -> longitude = airlong;
+        this -> latitude = lat;
+    }
+
+};
+
 
 /**
- * Constructor for airport object.
- * @param id The unique id of the airport
- * @param name The name of the airport
- * @param city The city the airport is located in
- * @param country The country the airport is located in
- * @param iataCode The unique IATA code for the airport
- * @param icaoCode The unique ICAO code for the airport
- * @param latitude The latitude at that location
- * @param longitude The longitude at that location
- */
-Airport::Airport(string id, string name, string city, string country, string iataCode, string icaoCode, double latitude, double longitude) {
-    this->airportID = id;
-    this->name = name;
-    this->city = city;
-    this->country = country;
-    this->iataCode = iataCode;
-    this->icaoCode = icaoCode;
-    this->latitude = latitude;
-    this->longitude = longitude;
+ * toString method to write aiport object as a string for readability
+ * @returns: string
+ * */
+string Airport::toString(){
+    return this->airportID + " name= " + airportName + " city= " + airportCity + " country= " + country + " IATA code= " + ICAO;
 }
 
-
 /**
- * This function gets the name of an airport
- * @return the airport name
- */
-string Airport::getName() {
-    return this->name;
+ * Accessor and Mutator Methods for the instance variables
+ * */
+string Airport::getAirportID(){
+    return airportID;
+};
+
+void Airport::setAirportID(string airportID){
+    this -> airportID = airportID;
 }
 
-/**
- * This function gets the ID of an airport
- * @return the airport ID
- */
-string Airport::getID() {
-    return this->airportID;
+string Airport::getAirportCity() {
+    return airportCity;
 }
 
-/**
- * This function gets the country an airport is located in
- * @return the airport country
- */
+void Airport::setAirportCity(string airportCity) {
+    this->airportCity = airportCity;
+}
+
+string Airport::getAirportName() {
+    return airportName;
+}
+
+void Airport::setAirportName(string airportName) {
+    this->airportName = airportName;
+}
+
 string Airport::getCountry() {
-    return this->country;
+    return country;
+}
+
+void Airport::setCountry(string country) {
+    this -> country = country;
+}
+
+string Airport::getIATA() {
+    return IATA;
+}
+
+void Airport::setIATA(string IATA) {
+    this -> IATA = IATA;
+}
+
+string Airport::getICAO() {
+    return ICAO;
+}
+
+void Airport::setICAO(string ICAO) {
+    this -> ICAO = ICAO;
+}
+
+double Airport::getLongitude() {
+    return longitude;
+}
+
+void Airport::setLongitude(double longitude) {
+    this -> longitude = longitude;
+}
+
+double Airport::getLatitude() {
+    return latitude;
+}
+
+void Airport::setLatitude(double latitude) {
+    this -> latitude = latitude;
+}
+
+/**
+ * Additional accessor method to fetch list of airports from map of airports in every location
+ * @param: srcAirport
+ * @return: vector<Airport>
+ * */
+vector<Airport> Airport::getAirport(string srcAirport) {
+    vector<Airport> airportList = Airport::locationtoAirportsMap[srcAirport];
+    return airportList;
+}
+
+/**
+ * Additional accessor method to fetch airport object from unordered map of airports
+ * @param: IATA
+ * @return: Airport object
+ * */
+Airport Airport::getObject(string IATA) {
+    Airport newAirport = Airport::airportsMap.at(IATA);
+    return newAirport;
 }
 
 
 /**
- * This function gets the IATA code of an airport
- * @return unique airport IATA code
+ * Method to read airports.csv file and store data in unordered map
+ * @param: airportFile
  */
-string Airport::getIataCode() {
-    return iataCode;
-}
-
-/**
- * This function gets the ICAO code of an airport
- * @return unique airport ICAO code
- */
-string Airport::getIcaoCode() {
-    return this->icaoCode;
-}
-
-/**
- * This function gets the city an airport is located in
- * @return airport city
- */
-string Airport::getCity() {
-    return this->city;
-}
-
-
-/**
- * This function reads a csv file, creates airport objects with its values and stores them in unordered maps for later access.
- * @param csvFile the airports csv file being read.
- */
-void Airport::readFile(string csvFile) {
-    ifstream fileStream;
+void Airport::readAirportFile(string airportFile) {
+    ifstream airportReader(airportFile);
 
     try{
-        fileStream.open(csvFile);
-        string line, id, name, city, country, iata, icao, tempLatitude, tempLongitude;
-        double latitude = 0, longitude;
+
+        string values;
         int count = 0;
+        string row;
+
+        string airportID;
+        string airportName;
+        string city;
+        string country;
+        string IATA;
+        string ICAO;
+        string airLong;
+        string airLat;
+        char delim = ',';
+
+        double longitude, latitude;
 
 
-        while(getline(fileStream, line)){
+        while(getline(airportReader, row)){
             if (count == 0){
                 count++;
                 continue;
             }
-            stringstream stream(line);
+            stringstream input(row);
 
-            getline(stream, id, ',');
-            getline(stream,name,',');
-            getline(stream,city,',');
-            getline(stream,country,',');
-            getline(stream,iata,',');
-            getline(stream,icao,',');
-            getline(stream,tempLatitude,',');
-            getline(stream,tempLongitude,',');
+            getline(input, airportID, delim);
+            getline(input, airportName, delim);
+            getline(input, city, delim);
+            getline(input, country, delim);
+            getline(input, IATA, delim);
+            getline(input, ICAO, delim);
+            getline(input, airLong, delim);
+            getline(input, airLat, delim);
 
-            if (tempLatitude == " ")
-                continue;
+            longitude = stod(airLong);
 
+            if (airLat == " ")
+                latitude = 0.0;
             else
-                latitude = stod(tempLatitude);
-
-            longitude = stod(tempLongitude);
-
+                latitude = stod(airLat);
 
 
             string key = city + ", " + country;
-            Airport tempAirport = Airport(id, name, city, country, iata, icao, latitude, longitude);
 
-            Airport::codes.insert({iata, tempAirport});
+            Airport airport = Airport(airportID, airportName, city, country, IATA, ICAO, latitude, longitude);
 
-            if (Airport::airports.find(key) != Airport::airports.end()) {
-                vector<Airport> tempList = Airport::airports[key];
-                tempList.emplace_back(tempAirport);
-                Airport::airports.erase(key);
-                Airport::airports.insert({key,tempList});
+            Airport::airportsMap.insert({IATA, airport});
+            vector<Airport> airportsList;
+
+            if (Airport::locationtoAirportsMap.find(key) != Airport::locationtoAirportsMap.end()) {
+                airportsList = Airport::locationtoAirportsMap[key];
+                airportsList.push_back(airport);
+                Airport::locationtoAirportsMap.erase(key);
+                Airport::locationtoAirportsMap.insert({key, airportsList});
             }
             else{
-                vector<Airport> tempList;
-                tempList.emplace_back(tempAirport);
-                Airport::airports.insert({key,tempList});
+                airportsList.push_back(airport);
+                Airport::locationtoAirportsMap.insert({key, airportsList});
             }
-
         }
+        airportReader.close();
 
+    } catch (const exception &e){
+        cout << "Unable to open or read airports.csv file." << e.what() << endl;
     }
 
-    catch (std::exception const& e){
-        cout << "There was an error: " << e.what() << endl;
-    }
-    fileStream.close();
-
-
 }
-
-/**
- * This function gets all the airports in a particular city
- * @param source the source city, country
- * @return A vector of airports from that city
- */
-vector<Airport> Airport::getAirport(string source) {
-    vector<Airport> portList = Airport::airports[source];
-    return portList;
-}
-
-/**
- * This function gets the airport associated with a particular IATA code
- * @param iataCode unique IATA code of airport
- * @return airport object associated with code
- */
-Airport Airport::getObject(string iataCode) {
-    Airport tempPort = Airport::codes.at(iataCode);
-    return tempPort;
-}
-
-
-/**
- * This function gets the latitude value of an Airport
- * @return Airport latitude
- */
-double Airport::getLatitude() {
-    return this->latitude;
-}
-
-/**
- * This function gets the longitude value of an airport
- * @return Airport longitude
- */
-double Airport::getLongitude() {
-    return this->longitude;
-}
-
-
-
-
