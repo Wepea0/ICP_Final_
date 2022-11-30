@@ -1,6 +1,4 @@
-//
-// Created by Cyril K on 11/20/2022.
-//
+
 
 #ifndef C___INDIVIDUAL_PROJECT_AIRPORT_H
 #define C___INDIVIDUAL_PROJECT_AIRPORT_H

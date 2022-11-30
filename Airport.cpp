@@ -1,7 +1,4 @@
-/**
- * This class represents an Airport object
- * @author Cyril Kujar & Bernd Opoku-Boadu
- */
+
 
 #include "Airport.h"
 #include <iostream>
