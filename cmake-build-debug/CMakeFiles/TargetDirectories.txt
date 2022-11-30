@@ -1,0 +1,3 @@
+C:/Users/Wepea Buntugu/CLionProjects/ICP_Final_/cmake-build-debug/CMakeFiles/C___Individual_Project.dir
+C:/Users/Wepea Buntugu/CLionProjects/ICP_Final_/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Wepea Buntugu/CLionProjects/ICP_Final_/cmake-build-debug/CMakeFiles/rebuild_cache.dir
