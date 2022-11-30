@@ -1,51 +1,61 @@
-//
-// Created by Cyril K on 11/20/2022.
-//
-
-#ifndef C___INDIVIDUAL_PROJECT_ROUTE_H
-#define C___INDIVIDUAL_PROJECT_ROUTE_H
 
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
+#include <multinfo.h>
 #include <deque>
 #include <queue>
 #include <set>
 #include "Airport.h"
 using namespace std;
 
-class Route {
+/**
+ * <h2>Class for route objects. This contains attributes for the route information that is most relevant to
+ * the bfs search process </h2>
+ */
+class Routes {
 private:
-    string airlineIata, airlineId, sourceIata, sourceId, destIata, destId, codeshare, equipment, stops;
+    string airlineId;
+    string sourceIata;
+    string destId;
+    string airlineIata;
+    string stops;
+    string sourceId;
+    string destIata;
+
 
 public:
-    static unordered_map<string,vector<Route>> routes;
-    static unordered_map<string,vector<Route>> flights;
+    static unordered_map<string,vector<Routes>> routes;
+    static unordered_map<string,vector<Routes>> flights;
     static unordered_map<string,string> parents;
+    static unordered_set<string> hold_source_airports;
 
-    Route(string airlineIata,
+
+    Routes(string airlineIata,
           string airlineId,
           string sourceIata,
           string sourceId,
           string destIata,
           string destId,
           string stops);
+
+    static void findRoute(string csvFile);
+    static vector<string> bfs(Airport start, Airport destination);
+    static double calcHaversineDist(Airport start, Airport destination);
+    static void writeFile(string start, string destination, vector<string> path, vector<string> flightPath, double distance);
+    static bool contains(deque<string> q, string value);
+    static bool contains_set(set<string> s, string value);
+    static vector<string> solutionPath(string destinationIata);
+    static void findAllFlights(string csvFile);
+
     string getAirlineIata();
     string getAirlineId();
-    string getSourceIata();
     string getSourceId();
-    string getdestIata();
-    string getdestId();
-    string getNumStops();
-    static bool contains(deque<string> q, string value);
-    static bool set_contains(set<string> s, string value);
-    static vector<string> solutionPath(string destinationIata);
-    static void getFlights(string csvFile);
-    static void findRoute(string csvFile);
-    static vector<string> search(Airport start, Airport destination);
-    static double haversine(Airport start, Airport destination);
-    static void writeToFile(string start, string destination, vector<string> path, vector<string> flightPath, double distance);
+    string findDestIATA();
+    string findAllStops();
+
+
 
 };
 
 
-#endif //C___INDIVIDUAL_PROJECT_ROUTE_H

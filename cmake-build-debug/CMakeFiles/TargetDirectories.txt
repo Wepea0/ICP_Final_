@@ -1,3 +1,3 @@
-C:/Users/Wepea Buntugu/CLionProjects/ICP_Cpp_Ultra/cmake-build-debug/CMakeFiles/C___Individual_Project.dir
-C:/Users/Wepea Buntugu/CLionProjects/ICP_Cpp_Ultra/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Wepea Buntugu/CLionProjects/ICP_Cpp_Ultra/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Wepea Buntugu/CLionProjects/Hold_Project/cmake-build-debug/CMakeFiles/C___Individual_Project.dir
+C:/Users/Wepea Buntugu/CLionProjects/Hold_Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Wepea Buntugu/CLionProjects/Hold_Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
