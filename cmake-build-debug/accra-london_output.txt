@@ -1,0 +1,4 @@
+1. AZ from ACC to FCO, 0 stops
+2. ZB from FCO to LTN, 0 stops
+Total number of flights = 2
+Total number of stops = 0

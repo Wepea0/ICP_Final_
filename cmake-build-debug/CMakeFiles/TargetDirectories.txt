@@ -1,0 +1,3 @@
+C:/Users/Wepea Buntugu/Downloads/SenaxWepeaFinalCProject (1)/SenaxWepeaFinalCProject/cmake-build-debug/CMakeFiles/SenaxWepeaFinalCProject.dir
+C:/Users/Wepea Buntugu/Downloads/SenaxWepeaFinalCProject (1)/SenaxWepeaFinalCProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Wepea Buntugu/Downloads/SenaxWepeaFinalCProject (1)/SenaxWepeaFinalCProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir

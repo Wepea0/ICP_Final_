@@ -1,0 +1,15 @@
+# ninja log v5
+11	1773	6915911676564617	CMakeFiles/SenaxWepeaFinalCProject.dir/Airports.cpp.obj	9d2fd49b2733b254
+7	2337	6915933689680653	CMakeFiles/SenaxWepeaFinalCProject.dir/Routes.cpp.obj	2006b9b1ded11c2f
+4	2731	6915939470601797	CMakeFiles/SenaxWepeaFinalCProject.dir/main.cpp.obj	59143cc6db1eedf5
+2732	3385	6915939477108932	SenaxWepeaFinalCProject.exe	7ac24515c5a8b455
+31	2470	6916352369805731	CMakeFiles/SenaxWepeaFinalCProject.dir/Airports.cpp.obj	7d1b840a77f29e38
+39	5166	6916352396752360	CMakeFiles/SenaxWepeaFinalCProject.dir/Routes.cpp.obj	e45ed5294936cb7
+24	5299	6916352398102134	CMakeFiles/SenaxWepeaFinalCProject.dir/main.cpp.obj	6e455fe82e141817
+5299	5956	6916352404614518	SenaxWepeaFinalCProject.exe	7ac24515c5a8b455
+378	15283	6916571363753851	CMakeFiles/SenaxWepeaFinalCProject.dir/Routes.cpp.obj	e45ed5294936cb7
+318	15456	6916571365633833	CMakeFiles/SenaxWepeaFinalCProject.dir/main.cpp.obj	6e455fe82e141817
+15460	17439	6916571384523737	SenaxWepeaFinalCProject.exe	7ac24515c5a8b455
+39	7283	6916578960368670	CMakeFiles/SenaxWepeaFinalCProject.dir/Routes.cpp.obj	e45ed5294936cb7
+26	7674	6916578964328648	CMakeFiles/SenaxWepeaFinalCProject.dir/main.cpp.obj	6e455fe82e141817
+7675	9008	6916578977568585	SenaxWepeaFinalCProject.exe	7ac24515c5a8b455

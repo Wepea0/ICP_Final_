@@ -1,0 +1,5 @@
+1. 3G from ACC to DKR, 0 stops
+2. SA from DKR to IAD, 0 stops
+3. UA from IAD to LGA, 0 stops
+Total number of flights = 3
+Total number of stops = 0

@@ -1,0 +1,4 @@
+1. 2J from ACC to OUA, 0 stops
+2. AC from OUA to BRU, 0 stops
+Total number of flights = 2
+Total number of stops = 0
